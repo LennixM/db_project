@@ -10,8 +10,9 @@
   <link rel="stylesheet" href="../css/style.css"/>
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" />
-
+  <!--<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.37/css/bootstrap-datetimepicker.min.css" rel="stylesheet" type="text/css" /> -->
+  <link rel="stylesheet" type="text/css" href="../css/updatetime.css"/>
+    
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
@@ -64,16 +65,12 @@
     </div>
     <div id="wrapper">
       <div id="dates">
-        <div class='input-group date' id='datetimepicker1'>
-          <input type='text' class="form-control" />
+        <div class='input-group date' id='datetimepicker1' >
+          <input type="text" class="form-control" size="50" placeholder="From" required>
           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
         <div class='input-group date' id='datetimepicker2'>
-          <input type='text' class="form-control" />
-          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-        </div>
-        <div class='input-group date' id='datetimepicker3'>
-          <input type='text' class="form-control" />
+          <input type="text" class="form-control" size="50" placeholder="To" required>
           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
       </div>
