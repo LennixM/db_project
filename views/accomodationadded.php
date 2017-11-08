@@ -4,6 +4,21 @@
 </head>
 <body>
   <?php
+  $ID_counter = 0;
+
+  function increment(){
+    $ID_counter += 1;
+    // $outfile = fopen("ID_counter.txt", "w");
+    // fwrite($outfile, $ID_counter);
+    // fclose($outfile);
+  }
+
+  function readfile(){
+    $infile = fopen("ID_counter.txt", "r");
+    $ID_counter = fgets($infile);
+    fclose($infile);
+  }
+
   if(isset($_POST['submit'])) {
     $data_missing = array();
 
@@ -12,16 +27,17 @@
     } else {
       $name = trim($_POST['name']);
     }
-    if(empty($_POST['ac_ID'])) {
-      $data_missing[] = 'ac_ID';
-    } else {
-      $ac_ID = trim($_POST['ac_ID']);
-    }
+
+    readfile();
+    increment();
+    $ac_ID = trim($_POST[$ID_counter]);
+
     if(empty($_POST['stars'])) {
       $data_missing[] = 'stars';
     } else {
       $stars = trim($_POST['stars']);
     }
+
     if(empty($_POST['description'])) {
       $data_missing[] = 'description';
     } else {
@@ -64,10 +80,6 @@
      <p>
        Name:
        <input type="text" name="name" value=""  />
-     </p>
-     <p>
-       ac_ID:
-       <input type="text" name="ac_ID" value=""  />
      </p>
      <p>
        stars:
