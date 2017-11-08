@@ -13,10 +13,7 @@
 <body>
   <form action="roomadded.php" method="post">
     <b>Add a new room</b>
-    <p>
-      ac_ID:
-      <input class="form-control"type="text" name="ac_ID" value=""  />
-    </p>
+
     <p>
       room_ID:
       <input class="form-control"type="text" name="Room_ID" value=""  />
