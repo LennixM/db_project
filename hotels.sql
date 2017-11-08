@@ -61,7 +61,7 @@ CREATE TABLE resort(
 
 CREATE TABLE rooms(
   ac_ID INT,
-  Room_ID INT,
+  room_ID INT,
   cost FLOAT,
   num_rooms INT,
   bed_type VARCHAR(100),

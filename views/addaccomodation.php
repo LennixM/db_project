@@ -18,10 +18,6 @@
       <input class="form-control"type="text" name="name" value=""  />
     </p>
     <p>
-      ac_ID:
-      <input class="form-control"type="text" name="ac_ID" value=""  />
-    </p>
-    <p>
       stars:
       <input class="form-control" type="text" name="stars" value=""  />
     </p>
