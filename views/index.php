@@ -72,10 +72,6 @@
           <input type='text' class="form-control" />
           <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
         </div>
-        <div class='input-group date' id='datetimepicker3'>
-          <input type='text' class="form-control" />
-          <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
-        </div>
       </div>
     </div>
   </form>
