@@ -12,9 +12,7 @@
   function increment(){
     $GLOBALS['ID_counter'] += 1;
     $outfile = fopen("ID_counter.txt", "w");
-    if(!fwrite($outfile, $GLOBALS['ID_counter']) {
-      echo "not working";
-    }
+    fwrite($outfile, $GLOBALS['ID_counter']);
     fclose($outfile);
   }
 

@@ -13,7 +13,10 @@ if ($result = mysqli_query($con, $query)){
                  echo "<td>Bed Type</td></tr>";
                      //data
                     while ($row = mysqli_fetch_array($result))  {
-                       echo "<tr><td>{$row[0]}</td>";
+                       $hotel = mysqli_query($con, "SELECT name FROM accomodation WHERE ac_ID={$row[0]}");
+                       while ($val = mysqli_fetch_array($hotel))  {
+                         echo "<tr><td>{$val[0]}</td>";
+                       }
                        echo "<td>{$row[1]}</td>";
                        echo "<td>{$row[2]}</td>";
                        echo "<td>{$row[3]}</td>";
