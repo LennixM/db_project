@@ -177,12 +177,16 @@ footer .glyphicon {
 
 div#dates div.input-group {
   float:left;
-  width: 31.5%;
-  margin-left: 5px;
-  margin-right: 5px;
-
+  width:  48%;
 }
 
+#datetimepicker1{
+    margin-left: 2px;
+}
+
+#datetimepicker2{
+    margin-left: 18px;
+}
 
 div.jumbotron div.input-group input, button{
     height: 50px;
