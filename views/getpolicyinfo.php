@@ -1,17 +1,17 @@
 <?php
 require_once('../mysqli_connect.php');
 
-$query = "SELECT a.ac_ID, a.name, r.room_ID, r.cost, r.num_rooms, r.bed_type FROM rooms r, accomodation a, contains c where r.room_ID = c.room_ID and c.ac_ID = a.ac_ID";
+$query = "SELECT a.ac_ID, a.name, p.other_policies, p.checkin_date, p.checkout_date, p.cancellation_period FROM accomodation a, policy p, has_policy hp where p.policy_ID = hp.policy_ID and hp.ac_ID = a.ac_ID";
 if ($result = mysqli_query($con, $query)){
 
                  echo "<table>";
                  //header
                  echo "<tr><td>AC_ID</td>";
 								 echo "<td>AC Name</td>";
-                 echo "<td>Room_ID</td>";
-                 echo "<td>cost</td>";
-                 echo "<td>Number of Rooms</td>";
-                 echo "<td>Bed Type</td></tr>";
+                 echo "<td>Policy</td>";
+                 echo "<td>checkin time</td>";
+                 echo "<td>checkout time</td>";
+                 echo "<td>calcellation period</td></tr>";
                      //data
                     while ($row = mysqli_fetch_array($result))  {
                        echo "<td>{$row[0]}</td>";
@@ -28,7 +28,7 @@ if ($result = mysqli_query($con, $query)){
 
              printf("Result set has %d rows.\n", $row_cnt);
              mysqli_free_result($result);
-             echo '<a href="addroom.php">Add room</a>
+             echo '<a href="addpolicy.php">Add policy</a>
              <a href="index.php">Home</a>';
 
  mysqli_close($con);

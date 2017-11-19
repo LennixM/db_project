@@ -13,11 +13,6 @@
 <body>
   <form action="roomadded.php" method="post">
     <b>Add a new room</b>
-
-    <p>
-      room_ID:
-      <input class="form-control"type="text" name="Room_ID" value=""  />
-    </p>
     <p>
       cost:
       <input class="form-control" type="text" name="cost" value=""  />
@@ -31,28 +26,23 @@
       <input class="form-control"type="text" name="bed_type" value=""  />
     </p>
 
-    <select name="ac_ID">
-
-      <?php
-
-      require_once('../mysqli_connect.php');
-
-      $query = "SELECT name, ac_ID FROM accomodation";
-      if ($result = mysqli_query($con, $query)){
-         while ($row = mysqli_fetch_array($result))  {
-          echo "<option value='{$row[1]}'>{$row[0]}</option>";
-        }
-      }
-      mysqli_close($mysqli);
-
-      ?>
-
+    <select name="ac_ID">   
+			<?php
+					require_once('../mysqli_connect.php');
+					$query = "SELECT name, ac_ID FROM accomodation";
+					if ($result = mysqli_query($con, $query)){
+						 while ($row = mysqli_fetch_array($result))  {
+							echo "<option value='{$row[1]}'>{$row[0]}</option>";
+						}
+					}
+					mysqli_close($mysqli);
+			?>
     </select>
-
     <p>
-      <input type="submit" class="btn btn-primary" name="submit" value="Send"  />
+      <input type="submit" class="btn btn-primary" name="submit" value="Send"/>
     </p>
   </form>
+		
   <a href="getroominfo.php">All rooms</a>
   <a href="index.php">Home</a>
 

@@ -5,33 +5,15 @@
 <body>
   <?php
 
-  $infile = fopen("ID_counter.txt", "r");
-  $ID_counter = fgets($infile);
-  fclose($infile);
-
-  function increment(){
-    $GLOBALS['ID_counter'] += 1;
-    $outfile = fopen("ID_counter.txt", "w");
-    fwrite($outfile, $GLOBALS['ID_counter']);
-    fclose($outfile);
-  }
-
-
-
   if(isset($_POST['submit'])) {
     $data_missing = array();
-
-    increment();
-
+      
     if(empty($_POST['name'])) {
       $data_missing[] = 'name';
     } else {
       $name = trim($_POST['name']);
     }
-
-    echo $ID_counter;
-    $ac_ID = trim($ID_counter);
-
+      
     if(empty($_POST['stars'])) {
       $data_missing[] = 'stars';
     } else {
@@ -47,10 +29,10 @@
     if(empty($data_missing)) {
 
       require_once('../mysqli_connect.php');
-      $query = "INSERT INTO accomodation (name, ac_ID, stars, description) VALUES (?, ?, ?, ?)";
+      $query = "INSERT INTO accomodation (name, stars, description) VALUES (?, ?, ?)";
 
       $stmt = mysqli_prepare($con, $query);
-      mysqli_stmt_bind_param($stmt, "siis", $name, $ac_ID, $stars, $description);
+      mysqli_stmt_bind_param($stmt, "sis", $name, $stars, $description);
       mysqli_stmt_execute($stmt);
 
       $affected_rows = mysqli_stmt_affected_rows($stmt);
@@ -66,7 +48,6 @@
       }
     } else {
       echo 'you need to enter the following data <br />';
-
       foreach ($data_missing as $missing) {
         echo "$missing<br />";
       }

@@ -1,9 +1,10 @@
+
 <?php
 
 require_once('../mysqli_connect.php');
 
 
-$query = "SELECT * FROM accomodation";
+$query = "SELECT * FROM accomodation a, hotel h WHERE a.ac_ID = h.ac_ID";
 if ($result = mysqli_query($con, $query)){
 
                 echo "<table>";

@@ -12,11 +12,6 @@
     } else {
       $ac_ID = trim($_POST['ac_ID']);
     }
-    if(empty($_POST['Room_ID'])) {
-      $data_missing[] = 'Room_ID';
-    } else {
-      $Room_ID = trim($_POST['Room_ID']);
-    }
     if(empty($_POST['cost'])) {
       $data_missing[] = 'cost';
     } else {
@@ -36,61 +31,39 @@
     if(empty($data_missing)) {
 
       require_once('../mysqli_connect.php');
-      $query = "INSERT INTO rooms (ac_ID, Room_ID, cost, num_rooms, bed_type) VALUES (?, ?, ?, ?, ?)";
-      $stmt = mysqli_prepare($con, $query);
-      mysqli_stmt_bind_param($stmt, "iidis", $ac_ID, $Room_ID, $cost, $num_rooms, $bed_type);
-      mysqli_stmt_execute($stmt);
+				
+			mysqli_query($con, "INSERT INTO rooms (cost, num_rooms, bed_type) VALUES ($cost, $num_rooms, '$bed_type')");
 
-      $affected_rows = mysqli_stmt_affected_rows($stmt);
-      echo $affected_rows;
+      $affected_rows = mysqli_affected_rows($con);
       if($affected_rows == 1) {
         echo 'Room Entered';
-        mysqli_stmt_close($stmt);
-        mysqli_close($con);
       } else {
         echo 'Error Occurred <br />';
-        echo mysqli_error();
-        mysqli_stmt_close($stmt);
-        mysqli_close($con);
+        echo mysqli_error($con);
       }
+				
+			$room_ID = mysqli_insert_id($con);
+				
+			mysqli_query($con, "INSERT INTO contains (ac_ID, room_ID) VALUES ($ac_ID, $room_ID)");
+				
+			$affected_contains = mysqli_affected_rows($con);
+			if ($affected_contains == 1) {
+				echo '-contains- relation updated';
+			} else {
+				echo 'ERROR -contains- relation not updated <br />';
+				echo mysqli_error();
+			}
+		mysqli_close($con);
     } else {
       echo 'you need to enter the following data <br />';
-
       foreach ($data_missing as $missing) {
         echo "$missing<br />";
       }
     }
-
   }
-   ?>
+?>
 
-   <form action="roomadded.php" method="post">
-     <b>Add a new room</b>
-     <p>
-       ac_ID:
-       <input class="form-control"type="text" name="ac_ID" value=""  />
-     </p>
-     <p>
-       room_ID:
-       <input class="form-control"type="text" name="Room_ID" value=""  />
-     </p>
-     <p>
-       cost:
-       <input class="form-control" type="text" name="cost" value=""  />
-     </p>
-     <p>
-       num_rooms:
-       <input class="form-control"type="text" name="num_rooms" value=""  />
-     </p>
-     <p>
-       bed_type:
-       <input class="form-control"type="text" name="bed_type" value=""  />
-     </p>
-     <p>
-       <input type="submit" class="btn btn-primary" name="submit" value="Send"  />
-     </p>
-   </form>
-   <a href="getroominfo.php">All rooms</a>
+   <a href="addroom.php">Go Back</a>
    <a href="index.php">Home</a>
 </body>
 </html>

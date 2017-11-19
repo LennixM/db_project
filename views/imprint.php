@@ -7,7 +7,7 @@
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" href="imp_style.css"/>
+      <link rel="stylesheet" href="../css/imp_style.css"/>
     </head>
 
 <nav class="navbar navbar-default navbar-fixed-top">
@@ -18,11 +18,11 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="demo.html"><img src="../images/BDA%20logo%20B&W.png" width="40" height="40" ></a>
+      <a class="navbar-brand" href="index.php"><img src="../images/BDA%20logo%20B&W.png" width="40" height="40" ></a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="demo.html">GO BACK</a></li>
+        <li><a href="index.php">GO BACK</a></li>
       </ul>
     </div>
   </div>

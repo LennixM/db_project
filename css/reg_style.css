@@ -1,0 +1,27 @@
+.btn{
+     margin: 15px 0;
+    background-color: #f4511e;
+    color: #fff;
+}
+.btn:hover{
+    background-color:#DC491B;
+    color: #fff;
+    }
+.btn:active{
+    background-color:#C44118 !important;
+    color: #fff;
+    }
+.form-control:last-child{
+    border-top-right-radius: 44px !important;
+}
+#myPage {
+    background-size: cover!important;
+    background-image: url("../images/florence.jpg");
+}
+
+@media screen and (max-width: 1024px)
+{
+    #myPage{
+        background-size: auto!important;
+    }
+}
